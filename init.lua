@@ -22,30 +22,31 @@ local plugins = {
 	'nvim-telescope/telescope.nvim', tag = '0.1.2',
 	'nvim-lua/plenary.nvim',
 	'nvim-treesitter/nvim-treesitter',
-	build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+	build = ":masonupdate", -- :masonupdate updates registry contents
 	{ 'rose-pine/neovim', name = 'rose-pine' },
 	{'folke/tokyonight.nvim'},
 	{
-		'VonHeikemen/lsp-zero.nvim',
+		'vonheikemen/lsp-zero.nvim',
 		branch = 'v2.x',
 		dependencies = {
-			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
+			-- lsp support
+			{'neovim/nvim-lspconfig'},             -- required
+			{                                      -- optional
 				'williamboman/mason.nvim',
 				build = function()
-					pcall(vim.cmd, 'MasonUpdate')
+					pcall(vim.cmd, 'masonupdate')
 				end,
 			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+			{'williamboman/mason-lspconfig.nvim'}, -- optional
 
-			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'L3MON4D3/LuaSnip'},     -- Required
+			-- autocompletion
+			{'hrsh7th/nvim-cmp'},     -- required
+			{'hrsh7th/cmp-nvim-lsp'}, -- required
+			{'l3mon4d3/luasnip'},     -- required
 		}
 	},
 	'kdheepak/lazygit.nvim',
+	'theprimeagen/harpoon',
 	'github/copilot.vim',
 }
 
