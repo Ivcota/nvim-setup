@@ -66,9 +66,9 @@ local opts = {}
 
 require("lazy").setup(plugins, opts)
 
--- vim.cmd("colorscheme rose-pine")
+vim.cmd("colorscheme rose-pine")
 
-vim.o.background = 'dark'
-require('vscode').load()
+-- vim.o.background = 'dark'
+-- require('vscode').load()
 
 print("hello world")
