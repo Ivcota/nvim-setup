@@ -65,15 +65,16 @@ local plugins = {
 	"vim-airline/vim-airline",
 	"vim-test/vim-test",
 	"HiPhish/nvim-ts-rainbow2",
+	"rstacruz/vim-closer",
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
 
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
 
--- vim.o.background = 'dark'
--- require('vscode').load()
+vim.o.background = "dark"
+require("vscode").load()
 
 print("Hey Iverson! Here's your Neovim ❤️")
