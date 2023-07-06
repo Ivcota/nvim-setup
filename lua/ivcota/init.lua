@@ -59,11 +59,16 @@ local plugins = {
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	"jose-elias-alvarez/null-ls.nvim",
 	"tpope/vim-surround",
+	"Mofiqul/vscode.nvim",
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
 
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
+
+vim.o.background = 'dark'
+require('vscode').load()
+
 print("hello world")
