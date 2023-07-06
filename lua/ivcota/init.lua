@@ -62,6 +62,7 @@ local plugins = {
 	"tpope/vim-surround",
 	"Mofiqul/vscode.nvim",
 	"folke/zen-mode.nvim",
+	"vim-airline/vim-airline",
 }
 
 local opts = {}
