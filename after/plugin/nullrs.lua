@@ -6,8 +6,12 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.completion.spell,
 		null_ls.builtins.formatting.prettier,
-
 	},
 })
 
-vim.keymap.set("n", "<leader>fm", "<cmd>lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>fm",
+	"<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>",
+	{ noremap = true, silent = true }
+)

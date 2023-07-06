@@ -30,7 +30,8 @@ local plugins = {
 		dependencies = {
 			-- lsp support
 			{ "neovim/nvim-lspconfig" }, -- required
-			{ -- optional
+			{
+				-- optional
 				"williamboman/mason.nvim",
 				build = function()
 					pcall(vim.cmd, "masonupdate")
@@ -60,6 +61,7 @@ local plugins = {
 	"jose-elias-alvarez/null-ls.nvim",
 	"tpope/vim-surround",
 	"Mofiqul/vscode.nvim",
+	"folke/zen-mode.nvim",
 }
 
 local opts = {}
