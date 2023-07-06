@@ -70,6 +70,10 @@ local plugins = {
 	"vim-test/vim-test",
 	"HiPhish/nvim-ts-rainbow2",
 	"rstacruz/vim-closer",
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
 }
 
 local opts = {}
@@ -77,7 +81,6 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 -- vim.cmd("colorscheme rose-pine")
-vim.cmd[[colorscheme tokyonight]]
-
+vim.cmd([[colorscheme tokyonight]])
 
 print("Hey Iverson! Here's your Neovim ❤️")
