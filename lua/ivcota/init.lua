@@ -60,8 +60,12 @@ local plugins = {
 	{ "akinsho/toggleterm.nvim", version = "*", config = true },
 	"jose-elias-alvarez/null-ls.nvim",
 	"tpope/vim-surround",
-	"Mofiqul/vscode.nvim",
-	"folke/zen-mode.nvim",
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	"vim-airline/vim-airline",
 	"vim-test/vim-test",
 	"HiPhish/nvim-ts-rainbow2",
@@ -73,8 +77,7 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 -- vim.cmd("colorscheme rose-pine")
+vim.cmd[[colorscheme tokyonight]]
 
-vim.o.background = "dark"
-require("vscode").load()
 
 print("Hey Iverson! Here's your Neovim ❤️")
