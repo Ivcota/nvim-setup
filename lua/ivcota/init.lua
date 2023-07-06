@@ -63,6 +63,7 @@ local plugins = {
 	"Mofiqul/vscode.nvim",
 	"folke/zen-mode.nvim",
 	"vim-airline/vim-airline",
+	"vim-test/vim-test",
 }
 
 local opts = {}
@@ -74,4 +75,4 @@ vim.cmd("colorscheme rose-pine")
 -- vim.o.background = 'dark'
 -- require('vscode').load()
 
-print("hello world")
+print("Hey Iverson! Here's your Neovim ❤️")
