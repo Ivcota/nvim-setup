@@ -64,6 +64,7 @@ local plugins = {
 	"folke/zen-mode.nvim",
 	"vim-airline/vim-airline",
 	"vim-test/vim-test",
+	"HiPhish/nvim-ts-rainbow2",
 }
 
 local opts = {}
