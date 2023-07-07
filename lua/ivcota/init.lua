@@ -74,7 +74,12 @@ local plugins = {
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
-  'windwp/nvim-ts-autotag',
+	"windwp/nvim-ts-autotag",
+	-- help me identify which plugin is causing the issue
+	{
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+	},
 }
 
 local opts = {}
