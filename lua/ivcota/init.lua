@@ -74,7 +74,7 @@ local plugins = {
 		"christoomey/vim-tmux-navigator",
 		lazy = false,
 	},
-	'alvan/vim-closetag',
+  'windwp/nvim-ts-autotag',
 }
 
 local opts = {}
