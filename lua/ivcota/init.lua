@@ -80,6 +80,7 @@ local plugins = {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 	},
+	"stevearc/oil.nvim",
 }
 
 local opts = {}
