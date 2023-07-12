@@ -80,6 +80,7 @@ local plugins = {
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 	},
+	"tpope/vim-fugitive",
 }
 
 local opts = {}
