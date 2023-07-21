@@ -83,6 +83,7 @@ local plugins = {
 	"tpope/vim-fugitive",
 	-- "preservim/nerdtree",
 	"folke/zen-mode.nvim",
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
 
 local opts = {}
@@ -90,7 +91,8 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 
 -- vim.cmd("colorscheme rose-pine")
-vim.cmd([[colorscheme tokyonight]])
+-- vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme catppuccin]])
 vim.opt.termguicolors = true
 
 print("Hey Iverson! Here's your Neovim ❤️")
