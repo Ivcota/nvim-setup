@@ -82,6 +82,13 @@ local plugins = {
 	},
 	"tpope/vim-fugitive",
 	-- "preservim/nerdtree",
+	{
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	},
 	"folke/zen-mode.nvim",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }
