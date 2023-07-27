@@ -91,15 +91,17 @@ local plugins = {
 	},
 	"folke/zen-mode.nvim",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	"kaicataldo/material.vim",
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-
 -- vim.cmd("colorscheme rose-pine")
 -- vim.cmd([[colorscheme tokyonight]])
-vim.cmd([[colorscheme catppuccin]])
+
+vim.g.material_theme_style = 'ocean-community'
+vim.cmd([[colorscheme material]])
 vim.opt.termguicolors = true
 
 print("Hey Iverson! Here's your Neovim ❤️")
