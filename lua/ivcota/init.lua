@@ -76,10 +76,10 @@ local plugins = {
 	},
 	"windwp/nvim-ts-autotag",
 	-- help me identify which plugin is causing the issue
-	{
-		"j-hui/fidget.nvim",
-		version = "legacy",
-	},
+	-- {
+	-- 	"j-hui/fidget.nvim",
+	-- 	version = "legacy",
+	-- },
 	"tpope/vim-fugitive",
 	-- "preservim/nerdtree",
 	{
