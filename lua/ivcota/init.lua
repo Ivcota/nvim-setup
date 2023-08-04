@@ -100,7 +100,7 @@ require("lazy").setup(plugins, opts)
 -- vim.cmd("colorscheme rose-pine")
 -- vim.cmd([[colorscheme tokyonight]])
 
-vim.g.material_theme_style = 'ocean-community'
+vim.g.material_theme_style = "ocean-community"
 vim.cmd([[colorscheme material]])
 vim.opt.termguicolors = true
 
