@@ -92,6 +92,7 @@ local plugins = {
 	"folke/zen-mode.nvim",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	"kaicataldo/material.vim",
+	"lewis6991/gitsigns.nvim",
 }
 
 local opts = {}
