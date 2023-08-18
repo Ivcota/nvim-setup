@@ -94,15 +94,17 @@ local plugins = {
 	"kaicataldo/material.vim",
 	"lewis6991/gitsigns.nvim",
 	"f-person/git-blame.nvim",
+  "rebelot/kanagawa.nvim"
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-vim.cmd("colorscheme rose-pine")
+-- vim.cmd("colorscheme rose-pine")
 -- vim.cmd([[colorscheme tokyonight]])
 -- vim.g.material_theme_style = "ocean-community"
 -- vim.cmd([[colorscheme material]])
+vim.cmd([[colorscheme kanagawa]])
 vim.opt.termguicolors = true
 
 print("Hey Iverson! Here's your Neovim ❤️")
