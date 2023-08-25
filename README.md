@@ -12,8 +12,7 @@ Using these plugins for the best experience:
 - Telescope
 - Copilot
 - Harpoon
-
-
+- Undo Tree
 
 ---
 
