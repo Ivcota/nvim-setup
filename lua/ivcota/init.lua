@@ -40,9 +40,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- optional
 
       -- autocompletion
-      { "hrsh7th/nvim-cmp" },  -- required
+      { "hrsh7th/nvim-cmp" },     -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
-      { "l3mon4d3/luasnip" },  -- required
+      { "l3mon4d3/luasnip" },     -- required
     },
   },
   "kdheepak/lazygit.nvim",
@@ -94,7 +94,8 @@ local plugins = {
   "kaicataldo/material.vim",
   "lewis6991/gitsigns.nvim",
   "f-person/git-blame.nvim",
-  "rebelot/kanagawa.nvim"
+  "rebelot/kanagawa.nvim",
+  "mbbill/undotree"
 }
 
 local opts = {}
