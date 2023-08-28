@@ -95,7 +95,8 @@ local plugins = {
   "lewis6991/gitsigns.nvim",
   "f-person/git-blame.nvim",
   "rebelot/kanagawa.nvim",
-  "mbbill/undotree"
+  "mbbill/undotree",
+  "dmmulroy/tsc.nvim"
 }
 
 local opts = {}
