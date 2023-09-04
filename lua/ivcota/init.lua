@@ -96,7 +96,8 @@ local plugins = {
   "f-person/git-blame.nvim",
   "rebelot/kanagawa.nvim",
   "mbbill/undotree",
-  "dmmulroy/tsc.nvim"
+  "dmmulroy/tsc.nvim",
+  "Slotos/telescope-lsp-handlers.nvim"
 }
 
 local opts = {}

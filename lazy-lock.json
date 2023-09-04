@@ -22,6 +22,7 @@
   "plenary.nvim": { "branch": "master", "commit": "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
   "refactoring.nvim": { "branch": "master", "commit": "7d57e01a9ae012c7aedd73f518d45608a772eb1f" },
   "rose-pine": { "branch": "main", "commit": "e10340767534b4988992de838d6c811db63b74db" },
+  "telescope-lsp-handlers.nvim": { "branch": "main", "commit": "ddbfca73b13bb746831ac5a2ed7a1ce0cc862d62" },
   "telescope.nvim": { "branch": "master", "commit": "1228f3b15ca3d9b95dcb92efda6a3448871030bd" },
   "toggleterm.nvim": { "branch": "main", "commit": "b90a1381e9b5b8596f49070ee86c71db267ac868" },
   "tokyonight.nvim": { "branch": "main", "commit": "1ee11019f8a81dac989ae1db1a013e3d582e2033" },
