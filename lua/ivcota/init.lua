@@ -40,9 +40,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- optional
 
       -- autocompletion
-      { "hrsh7th/nvim-cmp" },     -- required
+      { "hrsh7th/nvim-cmp" },  -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
-      { "l3mon4d3/luasnip" },     -- required
+      { "l3mon4d3/luasnip" },  -- required
     },
   },
   "kdheepak/lazygit.nvim",
@@ -97,17 +97,22 @@ local plugins = {
   "rebelot/kanagawa.nvim",
   "mbbill/undotree",
   "dmmulroy/tsc.nvim",
-  "Slotos/telescope-lsp-handlers.nvim"
+  "Slotos/telescope-lsp-handlers.nvim",
 }
 
 local opts = {}
 
+function SetColorScheme(name)
+  -- vim.cmd("colorscheme rose-pine")
+  -- vim.cmd([[colorscheme tokyonight]])
+  -- vim.g.material_theme_style = "ocean-community"
+  -- vim.cmd([[colorscheme material]])
+  vim.cmd("colorscheme " .. name)
+  vim.opt.termguicolors = true
+end
+
 require("lazy").setup(plugins, opts)
--- vim.cmd("colorscheme rose-pine")
--- vim.cmd([[colorscheme tokyonight]])
--- vim.g.material_theme_style = "ocean-community"
--- vim.cmd([[colorscheme material]])
-vim.cmd([[colorscheme kanagawa]])
-vim.opt.termguicolors = true
+
+SetColorScheme("rose-pine")
 
 print("Hey Iverson! Here's your Neovim ❤️")
