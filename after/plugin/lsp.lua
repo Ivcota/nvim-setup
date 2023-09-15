@@ -66,7 +66,7 @@ lspconfig.tsserver.setup {
     }
   },
   preferences = {
-    importModuleSpecifierPreference = "relative",
+    importModuleSpecifierPreference = "shortest",
     importModuleSpeciferEnding = "minimal"
   }
 
