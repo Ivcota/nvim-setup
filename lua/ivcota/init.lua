@@ -40,9 +40,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- optional
 
       -- autocompletion
-      { "hrsh7th/nvim-cmp" },  -- required
+      { "hrsh7th/nvim-cmp" },     -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
-      { "l3mon4d3/luasnip" },  -- required
+      { "l3mon4d3/luasnip" },     -- required
     },
   },
   "kdheepak/lazygit.nvim",
@@ -98,6 +98,13 @@ local plugins = {
   "mbbill/undotree",
   "dmmulroy/tsc.nvim",
   "Slotos/telescope-lsp-handlers.nvim",
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  }
 }
 
 local opts = {}
