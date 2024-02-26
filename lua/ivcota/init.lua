@@ -62,7 +62,7 @@ local plugins = {
     opts = {},
   },
   { "akinsho/toggleterm.nvim", version = "*",       config = true },
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   "tpope/vim-surround",
   {
     "folke/tokyonight.nvim",
