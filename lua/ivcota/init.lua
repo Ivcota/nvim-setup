@@ -1,5 +1,5 @@
 require("ivcota.autoload")
-require("ivcota.remap")
+require("ivcota.custom_mappings")
 require("ivcota.settings")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
