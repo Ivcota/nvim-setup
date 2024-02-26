@@ -46,7 +46,11 @@ local plugins = {
     },
   },
   "kdheepak/lazygit.nvim",
-  "theprimeagen/harpoon",
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  }, 
   "github/copilot.vim",
   {
     "folke/which-key.nvim",
