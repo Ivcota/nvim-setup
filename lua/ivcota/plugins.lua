@@ -132,6 +132,7 @@ local plugins = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-jest",
+      "marilari88/neotest-vitest",
       "nvim-treesitter/nvim-treesitter",
     },
   },
