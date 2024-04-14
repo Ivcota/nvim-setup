@@ -14,9 +14,3 @@ Using these plugins for the best experience:
 - Harpoon
 - Undo Tree
 
----
-
-todo:
-- Configure hotkey assistance
-- Add debugger
-- Configure tmux plugin
