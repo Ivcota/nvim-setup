@@ -19,3 +19,8 @@ vim.opt.scrolloff = 8
 vim.opt.guicursor = "a:blinkon100"
 vim.opt.backup = false
 vim.opt.cursorline = true
+
+-- Soft wrapping settings
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.textwidth = 80
