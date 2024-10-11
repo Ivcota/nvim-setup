@@ -36,9 +36,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- optional
 
       -- autocompletion
-      { "hrsh7th/nvim-cmp" },  -- required
+      { "hrsh7th/nvim-cmp" },     -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
-      { "l3mon4d3/luasnip" },  -- required
+      { "l3mon4d3/luasnip" },     -- required
     },
   },
   "kdheepak/lazygit.nvim",
@@ -136,6 +136,11 @@ local plugins = {
       "marilari88/neotest-vitest",
     },
   },
+
+  {
+    "supermaven-inc/supermaven-nvim",
+  }
+
 }
 
 local opts = {}
