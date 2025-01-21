@@ -67,7 +67,6 @@ local plugins = {
     opts = {},
   },
   "vim-airline/vim-airline",
-  "vim-test/vim-test",
   "rstacruz/vim-closer",
   {
     "christoomey/vim-tmux-navigator",
@@ -126,17 +125,6 @@ local plugins = {
   "theHamsta/nvim-dap-virtual-text",
   "mfussenegger/nvim-dap-python",
   {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-neotest/neotest-jest",
-      "nvim-neotest/neotest-python",
-      "marilari88/neotest-vitest",
-    },
-  },
-  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
@@ -181,7 +169,17 @@ local plugins = {
         ft = { "markdown", "Avante" },
       },
     },
-  }
+  },
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  },
+  "nvim-neotest/neotest-python"
 }
 
 local opts = {}
