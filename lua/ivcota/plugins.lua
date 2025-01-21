@@ -120,10 +120,7 @@ local plugins = {
     -- Your DBUI configuration
     vim.g.db_ui_use_nerd_fonts = 1
   end,
-  "mfussenegger/nvim-dap",
   "nvim-treesitter/nvim-treesitter",
-  "theHamsta/nvim-dap-virtual-text",
-  "mfussenegger/nvim-dap-python",
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
@@ -176,10 +173,12 @@ local plugins = {
       "nvim-neotest/nvim-nio",
       "nvim-lua/plenary.nvim",
       "antoinemadec/FixCursorHold.nvim",
-      "nvim-treesitter/nvim-treesitter"
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-python",
+      "marilari88/neotest-vitest"
     }
   },
-  "nvim-neotest/neotest-python"
+  "mfussenegger/nvim-dap"
 }
 
 local opts = {}
