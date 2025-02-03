@@ -58,7 +58,6 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
--- LSP configuration for tsserver
 lspconfig.tsserver.setup {
   on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
@@ -72,7 +71,24 @@ lspconfig.tsserver.setup {
     importModuleSpecifierPreference = "relative",
     importModuleSpeciferEnding = "minimal"
   }
+}
 
+lspconfig.cssls.setup {
+  filetypes = { "css", "scss", "less", "javascriptreact", "typescriptreact", "html", "vue", "svelte" }
+}
+
+lspconfig.pyright.setup {
+  on_attach = lsp.on_attach,
+  capabilities = lsp.capabilities,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = "workspace",
+        useLibraryCodeForTypes = true
+      }
+    }
+  }
 }
 
 -- Final setup
