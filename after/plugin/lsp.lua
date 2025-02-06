@@ -21,8 +21,24 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 })
 cmp_mappings['<Tab>'] = cmp.mapping.confirm({ select = true })
 cmp_mappings['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select)
-lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings,
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      cmp.config.compare.offset,        -- Items closer to the cursor position
+      cmp.config.compare.exact,         -- Exact matches take precedence
+      cmp.config.compare.score,         -- Fuzzy matching score
+      cmp.config.compare.locality,      -- Items near the cursor in the document
+      cmp.config.compare.recently_used, -- Favor recently used completions
+      cmp.config.compare.kind,          -- Group items by their kind/type
+      cmp.config.compare.sort_text,     -- Sort using the provided sort_text
+      cmp.config.compare.length,        -- Prefer shorter completion entries
+      cmp.config.compare.order,         -- Fallback: maintain the original order
+    },
+  },
+})
 -- LSP preferences
 lsp.set_preferences({
   suggest_lsp_servers = false,
