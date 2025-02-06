@@ -29,6 +29,7 @@ snacks.setup({
 vim.keymap.set("n", "<leader>lg", function() snacks.lazygit() end, { desc = "lazygit" })
 vim.keymap.set("n", "<leader>ff", function() snacks.picker.files() end, { desc = "find files" })
 vim.keymap.set("v", "<leader>fg", function() snacks.picker.grep_word() end, { desc = "find string" })
+vim.keymap.set("n", "<leader>fg", function() snacks.picker.grep() end, { desc = "find string" })
 vim.keymap.set("n", "<leader>fb", function() snacks.picker.buffers() end, { desc = "find buffers" })
 vim.keymap.set("n", "<leader><space>", function() snacks.picker.smart() end, { desc = "Smart Find Files" })
 
