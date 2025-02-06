@@ -24,10 +24,13 @@ snacks.setup({
 })
 
 -- Keybindings
+
+-- Search
 vim.keymap.set("n", "<leader>lg", function() snacks.lazygit() end, { desc = "lazygit" })
 vim.keymap.set("n", "<leader>ff", function() snacks.picker.files() end, { desc = "find files" })
 vim.keymap.set("v", "<leader>fg", function() snacks.picker.grep_word() end, { desc = "find string" })
 vim.keymap.set("n", "<leader>fb", function() snacks.picker.buffers() end, { desc = "find buffers" })
+vim.keymap.set("n", "<leader><space>", function() snacks.picker.smart() end, { desc = "Smart Find Files" })
 
 -- LSP
 vim.keymap.set("n", "gd", function() snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
@@ -42,3 +45,12 @@ vim.keymap.set("n", "<leader>gs", function() snacks.picker.git_status() end, { d
 vim.keymap.set("n", "<leader>gS", function() snacks.picker.git_stash() end, { desc = "Git Stash" })
 vim.keymap.set("n", "<leader>gd", function() snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
 vim.keymap.set("n", "<leader>gf", function() snacks.picker.git_log_file() end, { desc = "Git Log File" })
+vim.keymap.set("n", "<leader>gB", function() snacks.gitbrowse() end, { desc = "Git Browse" })
+vim.keymap.set("v", "<leader>gB", function() snacks.gitbrowse() end, { desc = "Git Browse" })
+
+-- Diagnostics
+vim.keymap.set("n", "<leader>sd", function() snacks.picker.diagnostics() end, { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>sD", function() snacks.picker.diagnostics_buffer() end, { desc = "Diagnostics Buffer" })
+
+-- Picker
+vim.keymap.set("n", "<leader>e", function() snacks.explorer() end, { desc = "File Explorer" })
