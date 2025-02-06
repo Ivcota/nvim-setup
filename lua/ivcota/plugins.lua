@@ -41,7 +41,7 @@ local plugins = {
       { "l3mon4d3/luasnip" },     -- required
     },
   },
-  "kdheepak/lazygit.nvim",
+  -- "kdheepak/lazygit.nvim",
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -178,7 +178,12 @@ local plugins = {
       "marilari88/neotest-vitest"
     }
   },
-  "mfussenegger/nvim-dap"
+  "mfussenegger/nvim-dap",
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+  }
 }
 
 local opts = {}

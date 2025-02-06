@@ -36,14 +36,14 @@ local function set_lsp_keymap(mode, key, action)
 end
 
 lsp.on_attach(function(client, bufnr)
-  set_lsp_keymap("n", "gd", function() vim.lsp.buf.definition() end)
-  set_lsp_keymap("n", "gh", function() vim.lsp.buf.hover() end)
+  -- set_lsp_keymap("n", "gd", function() vim.lsp.buf.definition() end)
+  -- set_lsp_keymap("n", "gh", function() vim.lsp.buf.hover() end)
+  -- set_lsp_keymap("n", "<leader>gr", function() vim.lsp.buf.references() end)
   set_lsp_keymap("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
   set_lsp_keymap("n", "<leader>vd", function() vim.diagnostic.open_float() end)
   set_lsp_keymap("n", "[d", function() vim.diagnostic.goto_next() end)
   set_lsp_keymap("n", "]d", function() vim.diagnostic.goto_prev() end)
   set_lsp_keymap("n", "<leader>vca", function() vim.lsp.buf.code_action() end)
-  set_lsp_keymap("n", "<leader>gr", function() vim.lsp.buf.references() end)
   set_lsp_keymap("n", "<leader>vrn", function() vim.lsp.buf.rename() end)
   set_lsp_keymap("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
 end)
@@ -74,7 +74,7 @@ lspconfig.tsserver.setup {
 }
 
 lspconfig.cssls.setup {
-  filetypes = { "css", "scss", "less", "javascriptreact", "typescriptreact", "html", "vue", "svelte" }
+  filetypes = { "css", "scss", "less", "html", "vue", "svelte" }
 }
 
 lspconfig.pyright.setup {
