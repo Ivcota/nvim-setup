@@ -55,3 +55,7 @@ vim.keymap.set("n", "<leader>sD", function() snacks.picker.diagnostics_buffer() 
 
 -- Picker
 vim.keymap.set("n", "<leader>e", function() snacks.explorer() end, { desc = "File Explorer" })
+
+-- Scratchpad
+vim.keymap.set("n", "<leader>.", function() snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
+vim.keymap.set("n", "<leader>S", function() snacks.scratch.select() end, { desc = "Select Scratch Buffer" })
