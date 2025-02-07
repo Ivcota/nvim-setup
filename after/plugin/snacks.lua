@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader><space>", function() snacks.picker.smart() end, { d
 -- LSP
 vim.keymap.set("n", "gd", function() snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
 vim.keymap.set("n", "gh", function() snacks.picker.lsp_type_definitions() end, { desc = "Goto Declaration" })
-vim.keymap.set("n", "<leader>gr", function() snacks.picker.lsp_references() end, { desc = "References" })
+vim.keymap.set("n", "gr", function() snacks.picker.lsp_references() end, { desc = "References" })
 
 -- Git
 vim.keymap.set("n", "<leader>gb", function() snacks.picker.git_branches() end, { desc = "Git Branches" })
