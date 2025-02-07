@@ -89,6 +89,8 @@ lsp.on_attach(function(client, bufnr)
   vim.schedule(function()
     -- If a default mapping for "gr" exists, try to remove it.
     pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gr")
+    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gh")
+    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gd")
   end)
 end)
 
