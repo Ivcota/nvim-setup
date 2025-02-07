@@ -47,7 +47,6 @@ local plugins = {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
   },
-  "github/copilot.vim",
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
