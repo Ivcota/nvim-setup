@@ -35,15 +35,15 @@ lsp.setup_nvim_cmp({
   sorting = {
     priority_weight = 2,
     comparators = {
-      cmp.config.compare.offset,     -- Items closer to the cursor position
-      cmp.config.compare.exact,      -- Exact matches take precedence
-      cmp.config.compare.score,      -- Fuzzy matching score
-      cmp.config.compare.locality,   -- Items near the cursor in the document
+      cmp.config.compare.offset,        -- Items closer to the cursor position
+      cmp.config.compare.exact,         -- Exact matches take precedence
+      cmp.config.compare.score,         -- Fuzzy matching score
+      cmp.config.compare.locality,      -- Items near the cursor in the document
       cmp.config.compare.recently_used, -- Favor recently used completions
-      cmp.config.compare.kind,       -- Group items by their kind/type
-      cmp.config.compare.sort_text,  -- Sort using the provided sort_text
-      cmp.config.compare.length,     -- Prefer shorter completion entries
-      cmp.config.compare.order,      -- Fallback: maintain the original order
+      cmp.config.compare.kind,          -- Group items by their kind/type
+      cmp.config.compare.sort_text,     -- Sort using the provided sort_text
+      cmp.config.compare.length,        -- Prefer shorter completion entries
+      cmp.config.compare.order,         -- Fallback: maintain the original order
     },
   },
 })
@@ -60,6 +60,9 @@ local function set_lsp_keymap(mode, key, action)
 end
 
 lsp.on_attach(function(client, bufnr)
+  pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gr")
+  pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gh")
+  pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gd")
   -- set_lsp_keymap("n", "gd", function() vim.lsp.buf.definition() end)
   -- set_lsp_keymap("n", "gh", function() vim.lsp.buf.hover() end)
   -- set_lsp_keymap("n", "<leader>gr", function() vim.lsp.buf.references() end)
@@ -83,14 +86,6 @@ lsp.on_attach(function(client, bufnr)
   end)
   set_lsp_keymap("i", "<C-h>", function()
     vim.lsp.buf.signature_help()
-  end)
-
-  -- Delay overriding "gr" so that it comes after default mappings.
-  vim.schedule(function()
-    -- If a default mapping for "gr" exists, try to remove it.
-    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gr")
-    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gh")
-    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gd")
   end)
 end)
 
