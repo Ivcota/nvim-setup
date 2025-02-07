@@ -84,6 +84,12 @@ lsp.on_attach(function(client, bufnr)
   set_lsp_keymap("i", "<C-h>", function()
     vim.lsp.buf.signature_help()
   end)
+
+  -- Delay overriding "gr" so that it comes after default mappings.
+  vim.schedule(function()
+    -- If a default mapping for "gr" exists, try to remove it.
+    pcall(vim.api.nvim_buf_del_keymap, bufnr, "n", "gr")
+  end)
 end)
 
 -- Custom function to organize imports
