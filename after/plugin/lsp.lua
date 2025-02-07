@@ -9,12 +9,17 @@ lsp.ensure_installed({ "tsserver", "rust_analyzer" })
 lsp.nvim_workspace()
 
 -- CMP setup
-vim.api.nvim_exec(
-	[[
-  autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-]],
-	true
-)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "sql", "mysql", "plsql" },
+	callback = function()
+		require("cmp").setup.buffer({
+			sources = {
+				{ name = "vim-dadbod-completion" },
+			},
+		})
+	end,
+})
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
