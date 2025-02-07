@@ -109,7 +109,7 @@ lspconfig.tsserver.setup({
 })
 
 lspconfig.cssls.setup({
-	filetypes = { "css", "scss", "less", "html", "vue", "svelte" },
+	filetypes = { "css", "scss", "less", "vue", "svelte" },
 })
 
 lspconfig.pyright.setup({
