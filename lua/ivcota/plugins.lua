@@ -182,7 +182,8 @@ local plugins = {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-  }
+  },
+  "github/copilot.vim"
 }
 
 local opts = {}
