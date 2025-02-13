@@ -182,7 +182,19 @@ local plugins = {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-  }
+  },
+  {
+    "Exafunction/codeium.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+    },
+    config = function()
+      require("codeium").setup({
+      })
+    end
+  },
+
 }
 
 local opts = {}

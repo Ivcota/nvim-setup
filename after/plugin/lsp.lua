@@ -15,7 +15,16 @@ vim.api.nvim_create_autocmd("FileType", {
     require("cmp").setup.buffer({
       sources = {
         { name = "vim-dadbod-completion" },
+        { name = "codeium" }
       },
+      formatting = {
+        format = require('lspkind').cmp_format({
+          mode = "symbol",
+          maxwidth = 50,
+          ellipsis_char = '...',
+          symbol_map = { Codeium = "", }
+        })
+      }
     })
   end,
 })
