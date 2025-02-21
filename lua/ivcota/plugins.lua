@@ -174,7 +174,8 @@ local plugins = {
       "antoinemadec/FixCursorHold.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-neotest/neotest-python",
-      "marilari88/neotest-vitest"
+      "marilari88/neotest-vitest",
+      'thenbe/neotest-playwright',
     }
   },
   "mfussenegger/nvim-dap",
