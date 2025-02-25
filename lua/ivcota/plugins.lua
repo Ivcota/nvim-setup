@@ -195,7 +195,12 @@ local plugins = {
       })
     end
   },
-
+  {
+    {
+      "GustavEikaas/git-worktree.nvim",
+      branch = "fix/telescope-worktree-list",
+    }
+  }
 }
 
 local opts = {}

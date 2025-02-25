@@ -59,3 +59,6 @@ vim.keymap.set("n", "<leader>e", function() snacks.explorer() end, { desc = "Fil
 -- Scratchpad
 vim.keymap.set("n", "<leader>.", function() snacks.scratch() end, { desc = "Toggle Scratch Buffer" })
 vim.keymap.set("n", "<leader>S", function() snacks.scratch.select() end, { desc = "Select Scratch Buffer" })
+
+vim.keymap.set("n", "<S-T>", function() snacks.terminal() end, { desc = "Toggle Terminal" })
+vim.keymap.set("n", "<c-_>", function() snacks.terminal() end, { desc = "which_key_ignore" })
