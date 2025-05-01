@@ -5,4 +5,4 @@ end
 
 -- SetColorScheme("rose-pine")
 -- SetColorScheme("doom-one")
-SetColorScheme("doom-one")
+SetColorScheme("onedark")
