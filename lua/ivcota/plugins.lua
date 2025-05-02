@@ -12,7 +12,13 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {}
+local plugins = {
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  }
+}
 
 local opts = {}
 
