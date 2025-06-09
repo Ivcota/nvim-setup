@@ -15,14 +15,14 @@ vim.api.nvim_create_autocmd("FileType", {
     require("cmp").setup.buffer({
       sources = {
         { name = "vim-dadbod-completion" },
-        { name = "codeium" }
+        { name = "copilot" }
       },
       formatting = {
         format = require('lspkind').cmp_format({
           mode = "symbol",
           maxwidth = 50,
           ellipsis_char = '...',
-          symbol_map = { Codeium = "", }
+          symbol_map = { Copilot = "", }
         })
       }
     })
@@ -41,9 +41,17 @@ cmp_mappings["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select)
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings,
+  sources = {
+    { name = "nvim_lsp" },
+    { name = "copilot" },
+    { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
+  },
   sorting = {
     priority_weight = 2,
     comparators = {
+      require("copilot_cmp.comparators").prioritize,
       cmp.config.compare.offset,        -- Items closer to the cursor position
       cmp.config.compare.exact,         -- Exact matches take precedence
       cmp.config.compare.score,         -- Fuzzy matching score

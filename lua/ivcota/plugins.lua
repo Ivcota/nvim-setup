@@ -39,6 +39,7 @@ local plugins = {
       { "hrsh7th/nvim-cmp" },  -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
       { "l3mon4d3/luasnip" },  -- required
+      { "onsails/lspkind.nvim" }, -- for completion item formatting
     },
   },
   -- "kdheepak/lazygit.nvim",
@@ -185,18 +186,13 @@ local plugins = {
     lazy = false,
   },
   {
-    "Exafunction/codeium.nvim",
+    "zbirenbaum/copilot-cmp",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
+      "zbirenbaum/copilot.lua",
     },
-    config = function()
-      require("codeium").setup({})
-    end,
   },
   "NTBBloodbath/doom-one.nvim",
   "navarasu/onedark.nvim"
-
 }
 
 local opts = {}
