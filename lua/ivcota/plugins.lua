@@ -36,9 +36,9 @@ local plugins = {
       { "williamboman/mason-lspconfig.nvim" }, -- optional
 
       -- autocompletion
-      { "hrsh7th/nvim-cmp" },  -- required
+      { "hrsh7th/nvim-cmp" },     -- required
       { "hrsh7th/cmp-nvim-lsp" }, -- required
-      { "l3mon4d3/luasnip" },  -- required
+      { "l3mon4d3/luasnip" },     -- required
       { "onsails/lspkind.nvim" }, -- for completion item formatting
     },
   },
@@ -137,9 +137,9 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp",         -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua",   -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -192,7 +192,11 @@ local plugins = {
     },
   },
   "NTBBloodbath/doom-one.nvim",
-  "navarasu/onedark.nvim"
+  "navarasu/onedark.nvim",
+  "greggh/claude-code.nvim",
+  dependencies = {
+    "nvim-lua/plenary.nvim", -- Required for git operations
+  },
 }
 
 local opts = {}

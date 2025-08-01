@@ -106,6 +106,7 @@ lsp.on_attach(function(client, bufnr)
   end)
 end)
 
+
 -- Custom function to organize imports
 local function organize_imports()
   local params = {
