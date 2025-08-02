@@ -14,5 +14,5 @@ vim.keymap.set(
   "n",
   "<leader>fm",
   "<cmd>lua vim.lsp.buf.format({ timeout_ms = 8000 })<CR>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "Format buffer" }
 )
