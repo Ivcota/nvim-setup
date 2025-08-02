@@ -1,14 +1,229 @@
-# My Current Neovim Setup
+# Neovim Configuration
 
-The current setup is geared toward general development. We’re primarily working with TypeScript and Python codebases, but the configuration is flexible enough to be extended to other languages.
+A comprehensive Neovim setup optimized for TypeScript, Python, and general development work. This configuration aims to provide a VS Code-like experience while leveraging Neovim's power and extensibility.
 
-Also wanted to keep the experience close to what VS-Code provides for me on a regular basis.
+## ✨ Features
 
-Using these plugins for the best experience:
+- **AI-Powered Development** - Integrated Claude Code for intelligent code assistance
+- **Advanced LSP** - Full language server support with auto-completion and diagnostics
+- **Testing Integration** - Run and debug tests directly in Neovim with Neotest
+- **Database Management** - Built-in database UI and query capabilities
+- **Git Integration** - Comprehensive git workflow with fugitive, gitsigns, and lazygit
+- **Fuzzy Finding** - Powerful file and content search with Telescope
+- **Project Navigation** - Quick file switching with Harpoon
+- **Debugging Support** - Full DAP integration for multiple languages
+- **Theme Variety** - Multiple beautiful themes including Rose Pine, Tokyo Night, and Catppuccin
 
-- Lazy Package Manager
-- LSP Zero
-- Telescope
-- Copilot
-- Harpoon
-- Undo Tree
+## 📋 Requirements
+
+- **Neovim** >= 0.9.0
+- **Git** 
+- **Node.js** >= 16.0.0 (for TypeScript LSP and tools)
+- **Python** >= 3.8 (for Python LSP)
+- **Ripgrep** (for Telescope search)
+- **A Nerd Font** (for icons)
+
+### Optional Dependencies
+
+- **Lazygit** - Enhanced git UI
+- **Database tools** - For database plugin functionality
+- **Language-specific tools** - Formatters, linters, etc.
+
+## 🚀 Installation
+
+1. **Backup existing config** (if any):
+   ```bash
+   mv ~/.config/nvim ~/.config/nvim.backup
+   ```
+
+2. **Clone this configuration**:
+   ```bash
+   git clone <your-repo-url> ~/.config/nvim
+   ```
+
+3. **Start Neovim**:
+   ```bash
+   nvim
+   ```
+
+4. **Let Lazy.nvim install plugins** - This happens automatically on first run
+
+5. **Install language servers** - Use `:Mason` to install LSPs for your languages
+
+## 🔧 Core Plugins
+
+### Package Management
+- **[lazy.nvim](https://github.com/folke/lazy.nvim)** - Modern plugin manager
+
+### LSP & Completion
+- **[lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)** - Zero-config LSP setup
+- **[mason.nvim](https://github.com/williamboman/mason.nvim)** - LSP installer
+- **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Autocompletion engine
+- **[copilot.lua](https://github.com/zbirenbaum/copilot.lua)** - GitHub Copilot integration
+
+### AI Integration
+- **[claudecode.nvim](https://github.com/coder/claudecode.nvim)** - Claude AI assistant integration
+
+### Navigation & Search
+- **[telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)** - Fuzzy finder
+- **[harpoon](https://github.com/ThePrimeagen/harpoon)** - Quick file navigation
+- **[telescope-lsp-handlers](https://github.com/Slotos/telescope-lsp-handlers.nvim)** - Enhanced LSP integration
+
+### Testing & Debugging
+- **[neotest](https://github.com/nvim-neotest/neotest)** - Test runner
+  - Python, Vitest, and Playwright adapters included
+- **[nvim-dap](https://github.com/mfussenegger/nvim-dap)** - Debug adapter protocol
+
+### Git Integration
+- **[vim-fugitive](https://github.com/tpope/vim-fugitive)** - Git wrapper
+- **[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)** - Git decorations
+- **[git-blame.nvim](https://github.com/f-person/git-blame.nvim)** - Inline git blame
+
+### Database
+- **[vim-dadbod](https://github.com/tpope/vim-dadbod)** - Database interface
+- **[vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)** - Database UI
+- **[vim-dadbod-completion](https://github.com/kristijanhusak/vim-dadbod-completion)** - SQL completion
+
+### Code Quality
+- **[none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)** - Formatting and linting
+- **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** - Syntax highlighting
+- **[Comment.nvim](https://github.com/numToStr/Comment.nvim)** - Smart commenting
+- **[refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim)** - Refactoring tools
+
+### UI & Themes
+- **[rose-pine](https://github.com/rose-pine/neovim)** - Elegant theme
+- **[tokyonight.nvim](https://github.com/folke/tokyonight.nvim)** - Tokyo Night theme
+- **[catppuccin](https://github.com/catppuccin/nvim)** - Catppuccin theme
+- **[kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)** - Japanese-inspired theme
+- **[snacks.nvim](https://github.com/folke/snacks.nvim)** - Enhanced UI components
+- **[which-key.nvim](https://github.com/folke/which-key.nvim)** - Keybinding helper
+
+### Utilities
+- **[undotree](https://github.com/mbbill/undotree)** - Undo history visualizer
+- **[toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)** - Terminal management
+- **[vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)** - Tmux integration
+- **[zen-mode.nvim](https://github.com/folke/zen-mode.nvim)** - Distraction-free writing
+- **[tsc.nvim](https://github.com/dmmulroy/tsc.nvim)** - TypeScript compiler integration
+
+## ⌨️ Key Bindings
+
+### Claude Code (AI Assistant)
+- `<leader>ac` - Toggle Claude Code
+- `<leader>af` - Focus Claude Code window
+- `<leader>ar` - Resume previous Claude session
+- `<leader>aC` - Continue current conversation
+- `<leader>am` - Select Claude model
+- `<leader>ab` - Add current buffer to Claude context
+- `<leader>as` - Send selection to Claude (visual mode)
+- `<leader>aa` - Accept Claude's diff suggestion
+- `<leader>ad` - Deny Claude's diff suggestion
+
+### Navigation
+- `<C-p>` - Telescope file finder
+- `<leader>fg` - Live grep search
+- `<leader>fb` - Buffer search
+- `<leader>fh` - Help tags search
+
+### Harpoon (Quick Navigation)
+- Check `after/plugin/harpoon.lua` for specific bindings
+
+### Git
+- `<leader>gs` - Git status (fugitive)
+- `<leader>gc` - Git commit
+- `<leader>gp` - Git push
+- `<leader>gl` - Git log
+
+### Testing
+- Test-related keybindings configured in `after/plugin/neotest.lua`
+
+### LSP
+- `gd` - Go to definition
+- `K` - Hover documentation
+- `<leader>ca` - Code actions
+- `<leader>rn` - Rename symbol
+
+## 🎨 Themes
+
+This configuration includes several themes:
+- Rose Pine (elegant and minimal)
+- Tokyo Night (dark with vibrant colors)
+- Catppuccin (pastel colors)
+- Kanagawa (Japanese-inspired)
+- Material Theme
+- OneDark
+- Doom One
+
+Switch themes using `:colorscheme <theme-name>`
+
+## 📁 File Structure
+
+```
+~/.config/nvim/
+├── init.lua                 # Main entry point
+├── lua/ivcota/
+│   ├── init.lua            # Core configuration loader
+│   ├── plugins.lua         # Plugin specifications
+│   ├── settings.lua        # Neovim settings
+│   ├── custom_mappings.lua # Custom key mappings
+│   └── auto_load.lua       # Auto-loading utilities
+└── after/plugin/           # Plugin configurations
+    ├── claude-code.lua     # Claude Code setup
+    ├── lsp.lua            # LSP configuration
+    ├── telescope.lua      # Telescope setup
+    ├── neotest.lua        # Testing configuration
+    ├── dap.lua            # Debugging setup
+    └── ...                # Other plugin configs
+```
+
+## 🔧 Customization
+
+### Adding New Plugins
+
+Add plugins to `lua/ivcota/plugins.lua`:
+
+```lua
+-- Add to the plugins table
+"author/plugin-name",
+-- or with configuration
+{
+    "author/plugin-name",
+    config = function()
+        -- Plugin setup
+    end,
+}
+```
+
+### Modifying Settings
+
+Edit `lua/ivcota/settings.lua` for Neovim settings or add configuration files in `after/plugin/`
+
+### Custom Key Mappings
+
+Add custom mappings to `lua/ivcota/custom_mappings.lua`
+
+## 🐛 Troubleshooting
+
+### Plugin Issues
+- Run `:Lazy sync` to update plugins
+- Use `:Lazy clean` to remove unused plugins
+- Check `:Lazy health` for plugin status
+
+### LSP Issues
+- Use `:Mason` to manage language servers
+- Run `:LspInfo` to check LSP status
+- Use `:LspRestart` to restart language servers
+
+### Performance Issues
+- Check startup time with `nvim --startuptime startup.log`
+- Consider lazy-loading plugins in `plugins.lua`
+
+## 📝 Notes
+
+- This configuration prioritizes TypeScript and Python development but is flexible for other languages
+- The setup aims to replicate VS Code functionality while maintaining Neovim's efficiency
+- Claude Code integration provides AI-powered assistance directly in your editor
+- All major development workflows (coding, testing, debugging, git) are integrated
+
+## 🤝 Contributing
+
+Feel free to suggest improvements or report issues. This configuration is continuously evolving based on development needs.
