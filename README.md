@@ -177,6 +177,74 @@ Switch themes using `:colorscheme <theme-name>`
 
 ## 🔧 Customization
 
+### Adding New Language Servers (LSPs)
+
+This configuration uses **lsp-zero** with **Mason** for LSP management. To add a new language server:
+
+1. **Install via Mason** (recommended):
+   ```vim
+   :Mason
+   ```
+   Search and install your desired LSP server (e.g., `rust_analyzer`, `clangd`, `gopls`)
+
+2. **Add to auto-install list** in `after/plugin/lsp.lua`:
+   ```lua
+   lsp.ensure_installed({ "ts_ls", "rust_analyzer", "your_new_lsp" })
+   ```
+
+3. **Configure specific LSP settings** (optional) in `after/plugin/lsp.lua`:
+   ```lua
+   lspconfig.your_lsp.setup({
+     on_attach = lsp.on_attach,
+     capabilities = lsp.capabilities,
+     settings = {
+       -- LSP-specific settings here
+     },
+   })
+   ```
+
+#### Current LSP Configurations:
+- **TypeScript/JavaScript**: `ts_ls` with organize imports support
+- **Python**: `pyright` with workspace analysis
+- **Go**: `gopls` with default settings
+- **CSS**: `cssls` for CSS, SCSS, Less, Vue, Svelte
+- **Rust**: `rust_analyzer` (auto-installed)
+
+### Adding Formatters and Linters
+
+This configuration uses **none-ls** (formerly null-ls) for formatting and linting:
+
+1. **Add formatter/linter** to `after/plugin/nullrs.lua`:
+   ```lua
+   null_ls.setup({
+     sources = {
+       null_ls.builtins.formatting.stylua,     -- Lua formatter
+       null_ls.builtins.formatting.prettier,   -- JS/TS/JSON/etc formatter  
+       null_ls.builtins.formatting.black,      -- Python formatter
+       null_ls.builtins.formatting.sqlfmt,     -- SQL formatter
+       -- Add your new formatter here:
+       null_ls.builtins.formatting.your_formatter,
+       null_ls.builtins.diagnostics.your_linter,
+     },
+   })
+   ```
+
+2. **Install the underlying tool** via Mason or your system package manager:
+   ```bash
+   # Examples:
+   npm install -g prettier
+   pip install black
+   cargo install stylua
+   ```
+
+3. **Format using** `<leader>fm` or `:lua vim.lsp.buf.format()`
+
+#### Current Formatters:
+- **Lua**: `stylua`
+- **JavaScript/TypeScript**: `prettier`
+- **Python**: `black`
+- **SQL**: `sqlfmt`
+
 ### Adding New Plugins
 
 Add plugins to `lua/ivcota/plugins.lua`:
