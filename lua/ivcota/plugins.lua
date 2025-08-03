@@ -16,6 +16,7 @@ local plugins = {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.2",
 	"nvim-lua/plenary.nvim",
+	"nvim-tree/nvim-web-devicons",
 	"nvim-treesitter/nvim-treesitter",
 	build = ":masonupdate", -- :masonupdate updates registry contents
 	{ "rose-pine/neovim", name = "rose-pine" },
