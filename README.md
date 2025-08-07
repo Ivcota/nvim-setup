@@ -127,6 +127,13 @@ A comprehensive Neovim setup optimized for TypeScript, Python, and general devel
 ### Harpoon (Quick Navigation)
 - Check `after/plugin/harpoon.lua` for specific bindings
 
+### Flash (Enhanced Navigation)
+- `s` - Flash jump (normal, visual, operator modes)
+- `S` - Flash treesitter jump (normal, visual, operator modes)  
+- `r` - Remote flash (operator mode)
+- `R` - Treesitter search flash (operator, visual modes)
+- `<C-s>` - Toggle flash search (command mode)
+
 ### Git
 - `<leader>gs` - Git status (fugitive)
 - `<leader>gc` - Git commit
