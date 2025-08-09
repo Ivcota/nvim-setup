@@ -3,14 +3,24 @@ local snacks = require("snacks")
 snacks.setup({
   bigfile = { enabled = true },
   dashboard = { enabled = true },
-  explorer = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },
   notifier = {
     enabled = true,
     timeout = 3000,
   },
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      files = {
+        hidden = true, -- Show .env and other dotfiles
+      }
+    }
+  },
+  explorer = {
+    enabled = true,
+    hidden = true, -- Show hidden files in explorer
+  },
   quickfile = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = false },
