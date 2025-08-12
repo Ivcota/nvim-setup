@@ -140,12 +140,12 @@ local plugins = {
 		priority = 1000,
 		lazy = false,
 	},
-	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = {
-			"zbirenbaum/copilot.lua",
-		},
-	},
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	dependencies = {
+	-- 		"zbirenbaum/copilot.lua",
+	-- 	},
+	-- },
 	"NTBBloodbath/doom-one.nvim",
 	"navarasu/onedark.nvim",
 	{
@@ -186,6 +186,7 @@ local plugins = {
       { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
     },
 	},
+	"supermaven-inc/supermaven-nvim",
 }
 
 local opts = {}
