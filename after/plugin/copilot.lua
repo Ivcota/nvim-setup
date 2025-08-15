@@ -20,10 +20,10 @@ require("copilot").setup({
     },
   },
   suggestion = {
-    enabled = false,
-    auto_trigger = false,
+    enabled = true,
+    auto_trigger = true,
     hide_during_completion = true,
-    debounce = 75,
+    debounce = 0,
     keymap = {
       accept = "<C-J>",
       accept_word = false,
@@ -48,5 +48,4 @@ require("copilot").setup({
   server_opts_overrides = {},
 })
 
--- Setup copilot-cmp for nvim-cmp integration
 require("copilot_cmp").setup()
