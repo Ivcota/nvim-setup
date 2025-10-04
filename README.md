@@ -178,17 +178,31 @@ Switch themes using `:colorscheme <theme-name>`
 ├── init.lua                 # Main entry point
 ├── lua/ivcota/
 │   ├── init.lua            # Core configuration loader
-│   ├── plugins.lua         # Plugin specifications
+│   ├── config.lua          # Main configuration
+│   ├── project.lua         # Project-specific settings
 │   ├── settings.lua        # Neovim settings
 │   ├── custom_mappings.lua # Custom key mappings
-│   └── auto_load.lua       # Auto-loading utilities
-└── after/plugin/           # Plugin configurations
-    ├── claude-code.lua     # Claude Code setup
-    ├── lsp.lua            # LSP configuration
-    ├── telescope.lua      # Telescope setup
-    ├── neotest.lua        # Testing configuration
-    ├── dap.lua            # Debugging setup
-    └── ...                # Other plugin configs
+│   ├── auto_load.lua       # Auto-loading utilities
+│   ├── plugins/            # Plugin specifications by category
+│   │   ├── init.lua        # Plugin loader
+│   │   ├── core.lua        # Core plugins (lazy.nvim)
+│   │   ├── lsp.lua         # LSP plugins
+│   │   ├── editor.lua      # Editor enhancements
+│   │   ├── ui.lua          # UI and themes
+│   │   ├── git.lua         # Git integration
+│   │   ├── ai.lua          # AI tools
+│   │   ├── test.lua        # Testing plugins
+│   │   └── utils.lua       # Utility plugins
+│   ├── languages/          # Language-specific configurations
+│   │   ├── init.lua        # Language config loader
+│   │   ├── typescript.lua  # TypeScript/JavaScript
+│   │   ├── python.lua      # Python
+│   │   ├── go.lua          # Go
+│   │   ├── lua.lua         # Lua
+│   │   ├── css.lua         # CSS/SCSS/Less
+│   │   ├── sql.lua         # SQL
+│   │   └── helpers.lua     # Language config helpers
+│   └── lsp/                # LSP configuration helpers
 ```
 
 ## 🔧 Customization
@@ -205,21 +219,23 @@ This configuration uses **lsp-zero** with **Mason** for LSP management. To add a
 
    Search and install your desired LSP server (e.g., `rust_analyzer`, `clangd`, `gopls`)
 
-2. **Add to auto-install list** in `after/plugin/lsp.lua`:
+2. **Add to auto-install list** in `lua/ivcota/plugins/lsp.lua`:
 
    ```lua
    lsp.ensure_installed({ "ts_ls", "rust_analyzer", "your_new_lsp" })
    ```
 
-3. **Configure specific LSP settings** (optional) in `after/plugin/lsp.lua`:
+3. **Configure specific LSP settings** (optional) in `lua/ivcota/languages/`:
    ```lua
-   lspconfig.your_lsp.setup({
-     on_attach = lsp.on_attach,
-     capabilities = lsp.capabilities,
-     settings = {
-       -- LSP-specific settings here
+   -- Create or edit a language config file (e.g., lua/ivcota/languages/rust.lua)
+   return {
+     lsp = {
+       server = "rust_analyzer",
+       settings = {
+         -- LSP-specific settings here
+       },
      },
-   })
+   }
    ```
 
 #### Current LSP Configurations:
@@ -234,7 +250,7 @@ This configuration uses **lsp-zero** with **Mason** for LSP management. To add a
 
 This configuration uses **none-ls** (formerly null-ls) for formatting and linting:
 
-1. **Add formatter/linter** to `after/plugin/nullrs.lua`:
+1. **Add formatter/linter** to `lua/ivcota/plugins/lsp.lua` or the relevant language config:
 
    ```lua
    null_ls.setup({
@@ -270,10 +286,10 @@ This configuration uses **none-ls** (formerly null-ls) for formatting and lintin
 
 ### Adding New Plugins
 
-Add plugins to `lua/ivcota/plugins.lua`:
+Add plugins to the appropriate file in `lua/ivcota/plugins/`:
 
 ```lua
--- Add to the plugins table
+-- Add to the relevant category file (e.g., editor.lua, ui.lua, utils.lua)
 "author/plugin-name",
 -- or with configuration
 {
@@ -286,7 +302,10 @@ Add plugins to `lua/ivcota/plugins.lua`:
 
 ### Modifying Settings
 
-Edit `lua/ivcota/settings.lua` for Neovim settings or add configuration files in `after/plugin/`
+- **Neovim settings**: Edit `lua/ivcota/settings.lua`
+- **Project settings**: Edit `lua/ivcota/project.lua`
+- **Plugin configs**: Edit the relevant file in `lua/ivcota/plugins/`
+- **Language configs**: Edit the relevant file in `lua/ivcota/languages/`
 
 ### Custom Key Mappings
 
