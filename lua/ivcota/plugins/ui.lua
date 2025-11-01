@@ -7,8 +7,64 @@ return {
 		name = "rose-pine",
 		priority = 1000,
 		config = function()
+			-- Enable rose-pine's built-in transparency
+			require("rose-pine").setup({
+				styles = {
+					transparency = true,
+				},
+			})
 			vim.cmd("colorscheme rose-pine")
 			vim.opt.termguicolors = true
+
+			-- Helper function to set transparent backgrounds
+			local function set_transparent(group)
+				vim.api.nvim_set_hl(0, group, { bg = "none" })
+			end
+
+			-- Core editor backgrounds
+			set_transparent("Normal")
+			set_transparent("NormalNC")
+			set_transparent("NormalFloat")
+			set_transparent("SignColumn")
+			set_transparent("EndOfBuffer")
+			set_transparent("MsgArea")
+
+			-- Float windows
+			set_transparent("FloatBorder")
+			set_transparent("FloatTitle")
+			set_transparent("FloatFooter")
+
+			-- Splits and separators
+			set_transparent("WinSeparator")
+			set_transparent("VertSplit")
+
+			-- Tab and status lines
+			set_transparent("TabLine")
+			set_transparent("TabLineFill")
+			set_transparent("WinBar")
+			set_transparent("WinBarNC")
+
+			-- Snacks.nvim components
+			set_transparent("SnacksNormal")
+			set_transparent("SnacksNormalNC")
+			set_transparent("SnacksTitle")
+			set_transparent("SnacksFooter")
+			set_transparent("SnacksWinBar")
+			set_transparent("SnacksWinBarNC")
+			set_transparent("SnacksWinSeparator")
+
+			-- Which-key popups
+			set_transparent("WhichKeyFloat")
+			set_transparent("WhichKeyBorder")
+
+			-- LSP and diagnostics floating windows
+			set_transparent("DiagnosticFloatingError")
+			set_transparent("DiagnosticFloatingWarn")
+			set_transparent("DiagnosticFloatingInfo")
+			set_transparent("DiagnosticFloatingHint")
+
+			-- Flash.nvim
+			set_transparent("FlashBackdrop")
 		end,
 	},
 	{
