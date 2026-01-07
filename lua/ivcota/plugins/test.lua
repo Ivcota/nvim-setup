@@ -14,53 +14,36 @@ return {
 			"marilari88/neotest-vitest",
 			"thenbe/neotest-playwright",
 			"olimorris/neotest-rspec",
+			"nvim-neotest/neotest-go",
 		},
 		config = function()
-			local languages = require("ivcota.languages")
-			local project = require("ivcota.project")
+			-- Direct adapter configuration (no language registry needed)
+			require("neotest").setup({
+				adapters = {
+					-- JavaScript/TypeScript (Vitest is default, Playwright available)
+					require("neotest-vitest"),
+					require("neotest-playwright").adapter({
+						options = {
+							persist_project_selection = true,
+							enable_dynamic_test_discovery = true,
+						},
+					}),
 
-			-- Get language configs with test adapters
-			local lang_configs = languages.get_with_tests()
+					-- Python
+					require("neotest-python")({
+						dap = { justMyCode = false },
+						runner = "pytest",
+					}),
 
-			-- Apply project-specific overrides
-			lang_configs = project.apply_test_overrides(lang_configs)
+					-- Go
+					require("neotest-go"),
 
-			-- Build adapter list
-			local adapters = {}
-			for _, lang_config in ipairs(lang_configs) do
-				if lang_config.test then
-					local adapter_name = lang_config.test.adapter
-					local adapter_config = lang_config.test.config or {}
+					-- Ruby
+					require("neotest-rspec"),
+				},
+			})
 
-					local ok, adapter = pcall(require, adapter_name)
-					if ok then
-						if type(adapter) == "table" and adapter.adapter then
-							-- Adapter is a table with adapter function (like neotest-playwright)
-							if next(adapter_config) ~= nil then
-								table.insert(adapters, adapter.adapter(adapter_config))
-							else
-								table.insert(adapters, adapter.adapter())
-							end
-						elseif type(adapter) == "function" then
-							-- Adapter is a function
-							if next(adapter_config) ~= nil then
-								table.insert(adapters, adapter(adapter_config))
-							else
-								table.insert(adapters, adapter)
-							end
-						else
-							-- Adapter is a module
-							table.insert(adapters, adapter)
-						end
-					else
-						vim.notify("Failed to load test adapter: " .. adapter_name, vim.log.levels.WARN)
-					end
-				end
-			end
-
-			require("neotest").setup({ adapters = adapters })
-
-			-- Keymap
+			-- Keymaps
 			vim.api.nvim_set_keymap("n", "<leader>t", ":Neotest run<CR>", { noremap = true, silent = true })
 		end,
 	},
@@ -78,13 +61,17 @@ return {
 				args = { "-m", "debugpy.adapter" },
 			}
 
-			-- Future: Load DAP configs from language modules
-			-- local languages = require("ivcota.languages")
-			-- for _, lang_config in ipairs(languages.get_with_dap()) do
-			--   if lang_config.dap then
-			--     lang_config.dap.config(dap)
-			--   end
-			-- end
+			dap.configurations.python = {
+				{
+					type = "python",
+					request = "launch",
+					name = "Launch file",
+					program = "${file}",
+					pythonPath = function()
+						return "python3"
+					end,
+				},
+			}
 		end,
 	},
 }

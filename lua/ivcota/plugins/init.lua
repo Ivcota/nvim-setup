@@ -10,6 +10,7 @@ function M.load()
 		"ivcota.plugins.ui",
 		"ivcota.plugins.editor",
 		"ivcota.plugins.lsp",
+		"ivcota.plugins.format",
 		"ivcota.plugins.git",
 		"ivcota.plugins.ai",
 		"ivcota.plugins.test",

@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-A comprehensive Neovim setup optimized for TypeScript, Python, and general development work. This configuration aims to provide a VS Code-like experience while leveraging Neovim's power and extensibility.
+A comprehensive Neovim setup optimized for TypeScript, Python, and general development work. This configuration uses native neovim 0.11+ features for better performance and a simplified, modular architecture.
 
 ## ✨ Features
 
@@ -16,7 +16,7 @@ A comprehensive Neovim setup optimized for TypeScript, Python, and general devel
 
 ## 📋 Requirements
 
-- **Neovim** >= 0.9.0
+- **Neovim** >= 0.11.0 (required for native LSP features)
 - **Git**
 - **Node.js** >= 16.0.0 (for TypeScript LSP and tools)
 - **Python** >= 3.8 (for Python LSP)
@@ -61,10 +61,10 @@ A comprehensive Neovim setup optimized for TypeScript, Python, and general devel
 
 ### LSP & Completion
 
-- **[lsp-zero.nvim](https://github.com/VonHeikemen/lsp-zero.nvim)** - Zero-config LSP setup
+- **[nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)** - Native LSP configuration (nvim 0.11+)
 - **[mason.nvim](https://github.com/williamboman/mason.nvim)** - LSP installer
 - **[nvim-cmp](https://github.com/hrsh7th/nvim-cmp)** - Autocompletion engine
-- **[copilot.lua](https://github.com/zbirenbaum/copilot.lua)** - GitHub Copilot integration
+- **[supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim)** - AI code completion
 
 ### AI Integration
 
@@ -96,7 +96,7 @@ A comprehensive Neovim setup optimized for TypeScript, Python, and general devel
 
 ### Code Quality
 
-- **[none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)** - Formatting and linting
+- **[conform.nvim](https://github.com/stevearc/conform.nvim)** - Fast and flexible formatting
 - **[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)** - Syntax highlighting
 - **[Comment.nvim](https://github.com/numToStr/Comment.nvim)** - Smart commenting
 - **[refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim)** - Refactoring tools
@@ -178,111 +178,102 @@ Switch themes using `:colorscheme <theme-name>`
 ├── init.lua                 # Main entry point
 ├── lua/ivcota/
 │   ├── init.lua            # Core configuration loader
-│   ├── config.lua          # Main configuration
+│   ├── config.lua          # Configuration flags
 │   ├── project.lua         # Project-specific settings
 │   ├── settings.lua        # Neovim settings
 │   ├── custom_mappings.lua # Custom key mappings
 │   ├── auto_load.lua       # Auto-loading utilities
-│   ├── plugins/            # Plugin specifications by category
-│   │   ├── init.lua        # Plugin loader
-│   │   ├── core.lua        # Core plugins (lazy.nvim)
-│   │   ├── lsp.lua         # LSP plugins
-│   │   ├── editor.lua      # Editor enhancements
-│   │   ├── ui.lua          # UI and themes
-│   │   ├── git.lua         # Git integration
-│   │   ├── ai.lua          # AI tools
-│   │   ├── test.lua        # Testing plugins
-│   │   └── utils.lua       # Utility plugins
-│   ├── languages/          # Language-specific configurations
-│   │   ├── init.lua        # Language config loader
-│   │   ├── typescript.lua  # TypeScript/JavaScript
-│   │   ├── python.lua      # Python
-│   │   ├── go.lua          # Go
-│   │   ├── lua.lua         # Lua
-│   │   ├── css.lua         # CSS/SCSS/Less
-│   │   ├── sql.lua         # SQL
-│   │   └── helpers.lua     # Language config helpers
-│   └── lsp/                # LSP configuration helpers
+│   └── plugins/            # Plugin specifications by category
+│       ├── init.lua        # Plugin loader
+│       ├── core.lua        # Core plugins (lazy.nvim)
+│       ├── lsp.lua         # LSP and completion
+│       ├── format.lua      # Formatting (conform.nvim)
+│       ├── editor.lua      # Editor enhancements
+│       ├── ui.lua          # UI and themes
+│       ├── git.lua         # Git integration
+│       ├── ai.lua          # AI tools (Claude Code, Supermaven)
+│       ├── test.lua        # Testing plugins
+│       └── utils.lua       # Utility plugins
 ```
 
 ## 🔧 Customization
 
 ### Adding New Language Servers (LSPs)
 
-This configuration uses **lsp-zero** with **Mason** for LSP management. To add a new language server:
+This configuration uses native **nvim-lspconfig** (neovim 0.11+) with **Mason** for LSP management. To add a new language server:
 
-1. **Install via Mason** (recommended):
+1. **Install via Mason**:
 
    ```vim
    :Mason
    ```
 
-   Search and install your desired LSP server (e.g., `rust_analyzer`, `clangd`, `gopls`)
+   Search and install your desired LSP server (e.g., `rust_analyzer`, `clangd`, `eslint`)
 
 2. **Add to auto-install list** in `lua/ivcota/plugins/lsp.lua`:
 
    ```lua
-   lsp.ensure_installed({ "ts_ls", "rust_analyzer", "your_new_lsp" })
+   ensure_installed = {
+     "lua_ls",
+     "ts_ls",
+     "pyright",
+     "your_new_lsp",
+   }
    ```
 
-3. **Configure specific LSP settings** (optional) in `lua/ivcota/languages/`:
+3. **Configure specific LSP settings** (optional) in the same file:
+
    ```lua
-   -- Create or edit a language config file (e.g., lua/ivcota/languages/rust.lua)
-   return {
-     lsp = {
-       server = "rust_analyzer",
-       settings = {
-         -- LSP-specific settings here
-       },
+   vim.lsp.config("your_lsp_name", {
+     settings = {
+       -- LSP-specific settings here
      },
-   }
+   })
    ```
 
 #### Current LSP Configurations:
 
-- **TypeScript/JavaScript**: `ts_ls` with organize imports support
-- **Python**: `pyright` with workspace analysis
-- **Go**: `gopls` with default settings
-- **CSS**: `cssls` for CSS, SCSS, Less, Vue, Svelte
-- **Rust**: `rust_analyzer` (auto-installed)
+- **TypeScript/JavaScript**: `ts_ls` with inlay hints
+- **Python**: `pyright`
+- **Go**: `gopls`
+- **CSS**: `cssls`
+- **Lua**: `lua_ls` with neovim-specific settings
+- **Ruby**: `ruby_lsp`
 
-### Adding Formatters and Linters
+### Adding Formatters
 
-This configuration uses **none-ls** (formerly null-ls) for formatting and linting:
+This configuration uses **conform.nvim** for fast and flexible formatting:
 
-1. **Add formatter/linter** to `lua/ivcota/plugins/lsp.lua` or the relevant language config:
+1. **Add formatter** to `lua/ivcota/plugins/format.lua`:
 
    ```lua
-   null_ls.setup({
-     sources = {
-       null_ls.builtins.formatting.stylua,     -- Lua formatter
-       null_ls.builtins.formatting.prettier,   -- JS/TS/JSON/etc formatter
-       null_ls.builtins.formatting.black,      -- Python formatter
-       null_ls.builtins.formatting.sqlfmt,     -- SQL formatter
-       -- Add your new formatter here:
-       null_ls.builtins.formatting.your_formatter,
-       null_ls.builtins.diagnostics.your_linter,
-     },
-   })
+   formatters_by_ft = {
+     -- Add your new formatter here:
+     rust = { "rustfmt" },
+     java = { "google-java-format" },
+   }
    ```
 
 2. **Install the underlying tool** via Mason or your system package manager:
 
    ```bash
    # Examples:
-   npm install -g prettier
-   pip install black
+   npm install -g prettier prettierd
+   pip install black ruff
    cargo install stylua
    ```
 
-3. **Format using** `<leader>fm` or `:lua vim.lsp.buf.format()`
+3. **Format using** `<leader>fm` (configured keybinding)
 
 #### Current Formatters:
 
+- **JavaScript/TypeScript**: `prettierd` or `prettier`
+- **Python**: `ruff_format` or `black`
+- **Go**: `gofmt`
 - **Lua**: `stylua`
-- **JavaScript/TypeScript**: `prettier`
-- **Python**: `black`
+- **Ruby**: `rubocop`
 - **SQL**: `sqlfmt`
+- **Web (CSS/HTML/Markdown/YAML)**: `prettierd` or `prettier`
 
 ### Adding New Plugins
 
@@ -303,9 +294,10 @@ Add plugins to the appropriate file in `lua/ivcota/plugins/`:
 ### Modifying Settings
 
 - **Neovim settings**: Edit `lua/ivcota/settings.lua`
+- **Configuration flags**: Edit `lua/ivcota/config.lua`
 - **Project settings**: Edit `lua/ivcota/project.lua`
 - **Plugin configs**: Edit the relevant file in `lua/ivcota/plugins/`
-- **Language configs**: Edit the relevant file in `lua/ivcota/languages/`
+- **LSP configs**: Edit `lua/ivcota/plugins/lsp.lua`
 
 ### Custom Key Mappings
 
@@ -332,10 +324,11 @@ Add custom mappings to `lua/ivcota/custom_mappings.lua`
 
 ## 📝 Notes
 
-- This configuration prioritizes TypeScript and Python development but is flexible for other languages
-- The setup aims to replicate VS Code functionality while maintaining Neovim's efficiency
-- Claude Code integration provides AI-powered assistance directly in your editor
-- All major development workflows (coding, testing, debugging, git) are integrated
+- This configuration uses native neovim 0.11+ LSP features for better performance and reliability
+- Supermaven provides AI-powered code completion, while Claude Code offers full AI assistant integration
+- The modular plugin structure makes it easy to add, remove, or customize individual components
+- All major development workflows (coding, testing, debugging, git, formatting) are integrated
+- The setup prioritizes TypeScript and Python development but is flexible for other languages
 
 ## 🤝 Contributing
 
