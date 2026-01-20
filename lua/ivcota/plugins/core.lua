@@ -17,9 +17,14 @@ return {
 					enable = true,
 				},
 				auto_install = true,
-				ensure_installed = { "c", "lua", "vim", "typescript", "javascript", "rust", "html" },
+				ensure_installed = { "c", "lua", "vim", "typescript", "javascript", "rust", "html", "python" },
 				highlight = {
 					enable = true,
+					-- Gracefully disable highlighting if queries are incompatible with parser
+					disable = function(lang, buf)
+						local ok = pcall(vim.treesitter.query.get, lang, "highlights")
+						return not ok
+					end,
 				},
 			})
 		end,
