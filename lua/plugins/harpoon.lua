@@ -33,6 +33,13 @@ return {
         end,
         desc = "Harpoon File 2",
       },
+      {
+        "<C-m>",
+        function()
+          require("harpoon"):list():select(3)
+        end,
+        desc = "Harpoon File 3",
+      },
     },
     opts = {},
   },

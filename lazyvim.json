@@ -1,7 +1,17 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.ai.claudecode",
+    "lazyvim.plugins.extras.ai.copilot",
     "lazyvim.plugins.extras.coding.blink",
-    "lazyvim.plugins.extras.editor.snacks_picker"
+    "lazyvim.plugins.extras.editor.snacks_picker",
+    "lazyvim.plugins.extras.formatting.biome",
+    "lazyvim.plugins.extras.lang.docker",
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.markdown",
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.lang.toml",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.test.core"
   ],
   "install_version": 8,
   "news": {
